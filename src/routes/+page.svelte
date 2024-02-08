@@ -29,6 +29,9 @@
 	};
 </script>
 
+<svelte:head>
+	<title>Anna Client Service</title>
+</svelte:head>
 <main class="min-h-screen bg-slate-200">
 	<div class="flex flex-col mx-auto min-h-screen max-w-3xl space-y-3">
 		<div class="sticky top-1.5 z-50 py-1.5 flex flex-col space-y-3 bg-slate-200">
