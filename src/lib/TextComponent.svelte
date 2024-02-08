@@ -2,7 +2,7 @@
 	import { createEventDispatcher } from 'svelte';
 
 	export let content: string;
-	let selected = false;
+	export let selected: boolean;
 
 	const dispatch = createEventDispatcher();
 
@@ -27,4 +27,6 @@
 	}
 </script>
 
-<button class="block" on:click={handler}>{content}</button>
+<button class:brightness-75={selected} class="block transition duration-200" on:click={handler}
+	>{content}</button
+>

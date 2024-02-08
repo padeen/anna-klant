@@ -9,5 +9,5 @@ export const serviceLines = [
   'The opening times are everyday from 10:30 till 21:30.',
   'Would you like to make an appointment?',
   'What time would you like to make an appointment?',
-  'Thanks for your support. See you tommorow.'
+  'Thanks for your support. I\'m looking forward to seeing you then.'
 ];
