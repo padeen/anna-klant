@@ -1,12 +1,10 @@
 <script lang="ts">
-	import { db } from '$lib/firebase.client';
-	import { collection, getDocs } from 'firebase/firestore';
+	import { serviceLines } from '$lib/serviceLines';
 	import TextComponent from '$lib/TextComponent.svelte';
-	import ServiceLineStore from '$lib/sentence_store';
 
 	let message = new Set<string>();
 
-	let selected = $ServiceLineStore.map(() => false);
+	let selected = serviceLines.map(() => false);
 
 	const appendMessage = (event) => {
 		message = message.add(event.detail.text);
@@ -20,14 +18,14 @@
 	const resetMessage = () => {
 		message.clear();
 		message = message;
-		selected = $ServiceLineStore.map(() => false);
+		selected = serviceLines.map(() => false);
 	};
 
 	const copyToClipboard = () => {
 		navigator.clipboard.writeText([...message].join(' '));
 		message.clear();
 		message = message;
-		selected = $ServiceLineStore.map(() => false);
+		selected = serviceLines.map(() => false);
 	};
 </script>
 
@@ -49,9 +47,8 @@
 					><img src="reset.svg" alt="reset icon" class="h-8" /></button
 				>
 			</div>
-			<a href="/login">Login</a>
 		</div>
-		{#each $ServiceLineStore as serviceLine, index}
+		{#each serviceLines as serviceLine, index}
 			<TextComponent
 				on:appendMessage={appendMessage}
 				on:removeMessage={removeMessage}
